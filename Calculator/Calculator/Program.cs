@@ -13,6 +13,9 @@ namespace Calculator
 {
     internal class Program
     {
+        
+
+
         static void Main(string[] args)
         {
             /*
@@ -37,9 +40,55 @@ namespace Calculator
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
 
-            //Tento komentar smaz a misto nej zacni psat svuj prdacky kod.
+            //zadám integery
+            int a;
+            int b;
+
+            //přepíšu je tak ať je program přečte jako číslo a ne pouze jako znak (udělám to dvakrát - pro obě proměné)
+            Console.WriteLine("vlož první číslo");
+            string prvnicislo = Console.ReadLine();
+            //a = int .Parse(prvnicislo);
+            a = Convert.ToInt32(prvnicislo);
+            Console.WriteLine("vlož druhé číslo");
+            string druhecislo = Console.ReadLine();
+            //b = int.Parse(druhecislo);
+            b = Convert.ToInt32(druhecislo);
+
+            Console.WriteLine("zadejte operaci " +
+                "( -  pro odčítání," +
+                " +  pro sčítání," +
+                " *  pro násobení," +
+                " /  pro dělení,)");
+
+            switch (Console.ReadLine())
+            {
+                case "+":
+                    int result;
+                    result = a+b;
+                    Console.WriteLine("váš výsledek je = " + result);
+                    break;
+
+                case "-":
+                    result = a-b;
+                    Console.WriteLine("váš výsledek je = " + result);
+                    break;
+
+                case "*":
+                    result = a * b;
+                    Console.WriteLine("váš výsledek je = " + result);
+                    break;
+
+                case "/":
+                    result = a / b;
+                    Console.WriteLine("váš výsledek je = " + result);
+                    break;
+
+            }
+     
+
 
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
+
         }
     }
 }
