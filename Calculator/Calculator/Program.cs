@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,27 +50,32 @@ namespace Calculator
             string prvnicislo = Console.ReadLine();
             //a = int .Parse(prvnicislo);
             a = Convert.ToInt32(prvnicislo);
+
             Console.WriteLine("vlož druhé číslo");
             string druhecislo = Console.ReadLine();
             //b = int.Parse(druhecislo);
             b = Convert.ToInt32(druhecislo);
 
+
+            //dám lidem možnost vybrat si operaci
             Console.WriteLine("zadejte operaci " +
                 "( -  pro odčítání," +
                 " +  pro sčítání," +
                 " *  pro násobení," +
                 " /  pro dělení,)");
 
+
+            //pomocí funkce switch udelám matematické operace
             switch (Console.ReadLine())
             {
                 case "+":
                     int result;
-                    result = a+b;
+                    result = a + b;
                     Console.WriteLine("váš výsledek je = " + result);
                     break;
 
                 case "-":
-                    result = a-b;
+                    result = a - b;
                     Console.WriteLine("váš výsledek je = " + result);
                     break;
 
@@ -79,9 +85,16 @@ namespace Calculator
                     break;
 
                 case "/":
-                    result = a / b;
-                    Console.WriteLine("váš výsledek je = " + result);
-                    break;
+                    if (b == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        result = a / b;
+                        Console.WriteLine("váš výsledek je = " + result);
+                        break;
+                    }
 
             }
      
