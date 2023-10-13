@@ -25,7 +25,17 @@ namespace RecursionPlayground
         static int Factorial(int n)
         {
             // TODO: Urci ukoncovaci podminku pro faktorial a zavolej Factorial zevnitr se spravnym parametrem / vypoctem.
-            return 0; // TODO: Uprav, aby Factorial vracel spravnou hodnotu.
+            if (n == 0)
+            {
+                Console.WriteLine("Nelze zadat nulu");
+            }
+            if (n == 2)
+            {
+                return 1;
+            }
+
+            int nfactorial = n * Factorial(n - 1);
+            return nfactorial; // TODO: Uprav, aby Factorial vracel spravnou hodnotu.
         }
 
         static int Fibonacci(int n)
