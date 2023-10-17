@@ -41,7 +41,8 @@ namespace RecursionPlayground
         static int Fibonacci(int n)
         {
             // TODO: Urci ukoncovaci podminku pro Fibonacciho a zavolej Fibonacci zevnitr se spravnym parametrem / vypoctem.
-            return 0; // TODO: Uprav, aby Fibonacci vracel spravnou hodnotu.
+            int nfibonacci = Fibonacci(n - 1) + Fibonacci(n - 2);
+            return nfibonacci; // TODO: Uprav, aby Fibonacci vracel spravnou hodnotu.
         }
     }
 }
