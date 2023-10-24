@@ -43,6 +43,7 @@ namespace RecursionPlayground
             // TODO: Urci ukoncovaci podminku pro Fibonacciho a zavolej Fibonacci zevnitr se spravnym parametrem / vypoctem.
             int nfibonacci = Fibonacci(n - 1) + Fibonacci(n - 2);
             return nfibonacci; // TODO: Uprav, aby Fibonacci vracel spravnou hodnotu.
+            //nevim proč mi to nefunguje
         }
     }
 }

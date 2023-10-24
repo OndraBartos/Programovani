@@ -54,9 +54,9 @@ namespace ArrayPlayground
             //TODO 6: Najdi minimum v poli a vypiš ho do konzole.   //můžu to udělat úplně stejně jako max
             int min = int.MaxValue; // musím nastavit něco jiného než nulu pro případ že v poli bude nějaké číslo menší než nula
             //min = myArray.Min();
-            for (int i = 0;i < myArray.Length;i++)
+            for (int i = 0; i < myArray.Length; i++)
             {
-                if (myArray[i] < min) 
+                if (myArray[i] < min)
                 {
                     min = myArray[i];
                 }
@@ -68,7 +68,7 @@ namespace ArrayPlayground
             bool foundnumber = false;
             for (int i = 0; i <= myArray.Length; i++)
             {
-                if(usernumber == myArray[i])
+                if (usernumber == myArray[i])
                 {
                     foundnumber = true;
                     Console.WriteLine($"Našel jsem číslo {usernumber} je na indexu {i}");
@@ -81,12 +81,39 @@ namespace ArrayPlayground
             }
 
             //TODO 8: Změň tvorbu integerového pole tak, že bude obsahovat 100 náhodně vygenerovaných čísel od 0 do 9. Vytvoř si na to proměnnou typu Random.
+            Random rng = new Random();
+            myArray = new int[100];
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                myArray[i] = rng.Next(0, 10);
+                Console.WriteLine($"Na indexi {i} je číslo {myArray[i]}");
+            }
 
             //TODO 9: Spočítej kolikrát se každé číslo v poli vyskytuje a spočítané četnosti vypiš do konzole.
             int[] counts = new int[10];
+            foreach (int number in myArray)
+            {
+                counts[number]++;
+            }
+
+            for (int i = 0; i < counts.Length; i++)
+            {
+                Console.WriteLine($"Číslo {i} se vyskytuje {counts[i]} krát");
+            }
 
             //TODO 10: Vytvoř druhé pole, do kterého zkopíruješ prvky z prvního pole v opačném pořadí.
+            int[] mySecondArray = new int[100];
+            for (int i = mySecondArray.Length - 1; i >= 0; i--)
+            {
+                mySecondArray[i] = myArray[99 - 1];
+            }
+            Console.WriteLine("První pole");
+            foreach (int number in myArray)
+            {
+                Console.WriteLine(number);
+            }  
 
+            //tomuhle nerozumim ani hovno
 
             Console.ReadKey();
         }
