@@ -19,7 +19,7 @@ namespace SearchPlayground
                     return i; //pokud číslo najde tak vrátí i
                 }
             }
-            return -1;
+            return -1;  //lineární vyhledávání postupně jde číslo po čísle dokud nenajde to co hledám
         }
 
         static int BinarySearch(int[] array, int elementToSearch)
@@ -37,22 +37,53 @@ namespace SearchPlayground
              * Až ti bude binary search fungovat, přidej k němu proměnnou, která ti bude počítat, kolikrát jsi musel rozdělit interval, než jsi prvek našel
              * a před returnem ho vypiš uživateli do konzole.
              */
-            int bottom;
-            int top;
+            int bottom = 0;
+            int top = array.Length - 1;
             int middle;
-            bottom = 0;
-            top = array.Length - 1;
-            for (int i = 0; i <= array.Length -1; i++)
+            int intervalDivisionCount = 0; //počet kolikrát rozdělíme interval aby jsme našli číslo
+            while (bottom<=top)
             {
-
+                intervalDivisionCount++;
+                middle = (bottom + top) / 2;
+                if (array[middle] == elementToSearch)
+                {
+                    Console.WriteLine("    Binární dělení dělilo interval " + intervalDivisionCount + "krát.");
+                    return middle; //střed je to číslo které jsme hledali
+                }
+                if (array[middle] < elementToSearch)
+                {
+                    bottom = middle + 1;
+                }
+                else
+                {
+                    top = middle -1;
+                }
             }
-
+            //binární vyhledávání vždycky vezmě střed pole zjistí jestli zo není naše hledané číslo a pokud ne,
+            //tak zjistí jestli je větší nebo menší než střed ==> rozdělí si pole na dvě poloviny a jednu z nich zahodí (to co nepotřebuju)
+            // tento způsob opakuju pořád dokola dokud moje číslo není na středu
             return -1;
         }
 
-        static int BinarySearchRecursive(int[] array, int elementToSearch, int lower, int upper)
+        static int BinarySearchRecursive(int[] array, int elementToSearch, int bottom, int top)
         {
             //TODO naimplementuj binární vyhledávání rekurzivním způsobem (Zamysli se nad parametry, které tato funkce přijímá vzpomeň si na přístup Rozděl a Panuj.)
+            
+            if (bottom > top)
+            {
+                return -1; //nenašel
+            }
+            int middle = bottom + (top - bottom) / 2;
+            if ((array[middle] == elementToSearch))
+            {
+                return middle; //našel na indexu middle
+            }
+            if ((array[middle] < elementToSearch))
+            {
+                return BinarySearchRecursive(array, elementToSearch, middle + 1, top);
+            }
+            return BinarySearchRecursive(array, elementToSearch, bottom, middle - 1);
+
             return -1;
         }
 
