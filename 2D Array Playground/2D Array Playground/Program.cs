@@ -18,7 +18,7 @@ namespace _2D_Array_Playground
             int numberToAdd = 1;
             for (int i = 0; i < my2DArray.GetLength(0); i++) //musím tam dát to getlength aby mi nebral celé pole o 25 členech ale jen tech 5 řádků
             {
-                for (int j = 0; j < my2DArray.GetLength(0); j++) //to samé udělám u sloupců 
+                for (int j = 0; j < my2DArray.GetLength(1); j++) //to samé udělám u sloupců 
                 {
                     my2DArray[i, j] = numberToAdd;
                     numberToAdd++;
@@ -104,7 +104,7 @@ namespace _2D_Array_Playground
 
             for (int i = 0; i < my2DArray.GetLength(0); i++) //vypsání do konzole
             {
-                for (int j = 0; j < my2DArray.GetLength(0); j++)
+                for (int j = 0; j < my2DArray.GetLength(1); j++)
                 {
                     Console.Write(my2DArray[i, j] + " ");
                 }
@@ -134,7 +134,7 @@ namespace _2D_Array_Playground
 
             for (int i = 0; i < my2DArray.GetLength(0); i++) //vypsání do konzole
             {
-                for (int j = 0; j < my2DArray.GetLength(0); j++)
+                for (int j = 0; j < my2DArray.GetLength(1); j++)
                 {
                     Console.Write(my2DArray[i, j] + " ");
                 }
@@ -154,7 +154,7 @@ namespace _2D_Array_Playground
 
             for (int i = 0; i < my2DArray.GetLength(0); i++) //vypsání do konzole
             {
-                for (int j = 0; j < my2DArray.GetLength(0); j++)
+                for (int j = 0; j < my2DArray.GetLength(1); j++)
                 {
                     Console.Write(my2DArray[i, j] + " ");
                 }
@@ -163,8 +163,6 @@ namespace _2D_Array_Playground
             Console.Write("\n");
 
             //TODO 8: Otoč pořadí prvků na vedlejší diagonále (z pravého horního rohu do levého dolního rohu) a vypiš celé pole do konzole po otočení.
-
-
 
             for (int i = 4; i >= my2DArray.GetLength(0) / 2; i--)
             {
@@ -177,7 +175,7 @@ namespace _2D_Array_Playground
 
             for (int i = 0; i < my2DArray.GetLength(0); i++) //vypsání do konzole
             {
-                for (int j = 0; j < my2DArray.GetLength(0); j++)
+                for (int j = 0; j < my2DArray.GetLength(1); j++)
                 {
                     Console.Write(my2DArray[i, j] + " ");
                 }
