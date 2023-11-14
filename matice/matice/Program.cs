@@ -1,4 +1,10 @@
-﻿namespace matice
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace matice
 {
     internal class Program
     {
@@ -13,7 +19,7 @@
             int Column1 = int.Parse(b);
             Console.Write("\n");
 
-            Console.WriteLine("Vaše první matice:");
+            Console.WriteLine("Vaše původní matice:");
             int[,] firstArray = new int[Row1, Column1]; // v hranatejch závorkách je čárka aby věděl že to je 2D pole
             int numberToAdd1 = 1;
             for (int i = 0; i < firstArray.GetLength(0); i++) //musím tam dát to getlength aby mi nebral celé pole o 25 členech ale jen těch 5 řádků
@@ -166,6 +172,11 @@
             }
             Console.Write("\n");
 
+
+            //NÁSOBENÍ MATICE ČÍSLEM
+            Console.WriteLine("Zadejte číslo, kterým chcete matici vynásobit");
+            string x = Console.ReadLine();
+            
 
 
             //druhá matice na další operace
