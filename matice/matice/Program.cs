@@ -10,7 +10,6 @@ namespace matice
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("Zadej počet řádků první matice"); //uživatel zadá počet rádků, přete mi je to a zkonvertuje na int
             string a = Console.ReadLine();
             int Row1 = int.Parse(a);
@@ -34,7 +33,6 @@ namespace matice
                                       // když jí napíšu s write tak bude psát na další řádek, když ji napíšu s writeline udělá mi ještě enter navíc
             }
             Console.Write("\n");
-
 
             //PROHOZENÍ PRVKŮ 
             Console.WriteLine("Prohození prvků v poli:");
@@ -61,10 +59,9 @@ namespace matice
             }
             Console.Write("\n");
 
-
             //PROHOZENÍ ŘÁDKŮ
             Console.WriteLine("Prohození řádků v poli:");
-            int[,] tempArray2 = (int[,])firstArray.Clone(); //musím si vytvořit novou pro kadou operaci
+            int[,] tempArray2 = (int[,])firstArray.Clone(); //musím si vytvořit novou pro každou operaci
             int nRowSwap = 0; //který řádek prohazujeme
             int mRowSwap = 1; //za který ho chceme prohodit
             int[] tempArrayRow = new int[5]; //podobně jako u císla chci přesunout celý řádek, proto si ho musím meziuložit v dočasném poli
@@ -94,10 +91,9 @@ namespace matice
             }
             Console.Write("\n");
 
-
             //PROHAZOVÁNÍ SLOUPCŮ
             Console.WriteLine("Prohození sloupců v poli:");
-            int[,] tempArray3 = (int[,])firstArray.Clone(); //musím si vytvořit novou pro kadou operaci
+            int[,] tempArray3 = (int[,])firstArray.Clone();
             int nColSwap = 0;
             int mColSwap = 1;
             int[] tempArrayColumn = new int[5];
@@ -127,10 +123,9 @@ namespace matice
             }
             Console.Write("\n");
 
-
             //PROHOZENÍ POŘADÍ HLAVNÍ DIAGONÁLY
             Console.WriteLine("Prohození pořadí prvků na hlavní diagonále v poli:");
-            int[,] tempArray4 = (int[,])firstArray.Clone(); //musím si vytvořit novou pro kadou operaci
+            int[,] tempArray4 = (int[,])firstArray.Clone();
             //int[,] tempArray2 = new int[Row1, Column1];
             for (int i = 0; i <= tempArray4.GetLength(0) / 2; i++) //automaticky zaorouhluje dolů
             {
@@ -150,10 +145,9 @@ namespace matice
             }
             Console.Write("\n");
 
-
             //PROHOZENÍ POŘADÍ VEDLEJŠÍ DIAGONÁLY
             Console.WriteLine("Prohození pořadí prvků na vedlejší diagonále v poli:");
-            int[,] tempArray5 = (int[,])firstArray.Clone(); //musím si vytvořit novou pro kadou operaci
+            int[,] tempArray5 = (int[,])firstArray.Clone();
             for (int i = 0; i < tempArray5.GetLength(0) / 2; i++) //děleno dvěma aby fro cyklus jel jenom do poloviny řádků matice,
             {                                          //protože kdyby to tam nebylo,tak se mi prvky prohodí 2krát tzn. nic by se nezměnilo
                 int temporary2 = tempArray5[i, tempArray5.GetLength(0) - i - 1];
@@ -172,11 +166,29 @@ namespace matice
             }
             Console.Write("\n");
 
-
             //NÁSOBENÍ MATICE ČÍSLEM
             Console.WriteLine("Zadejte číslo, kterým chcete matici vynásobit");
+            int[,] tempArray6 = (int[,])firstArray.Clone();
             string x = Console.ReadLine();
-            
+            int multiplier = int.Parse(x);
+            for (int i = 0; i < tempArray6.GetLength(0); i++)
+            {
+                for (int j = 0; j < tempArray6.GetLength(1); j++)
+                {
+                    tempArray6[i, j] *= multiplier; // *= zkratka pro násobení a přiřazení, nyvásobí hodnotu i a j tím co je za rovná se
+                }
+            }
+            for (int i = 0; i < tempArray6.GetLength(0); i++) //vypsání do konzole
+            {
+                for (int j = 0; j < tempArray6.GetLength(1); j++)
+                {
+                    Console.Write(tempArray6[i, j] + " ");
+                }
+                Console.Write("\n");
+            }
+            Console.Write("\n");
+
+
 
 
             //druhá matice na další operace
@@ -200,7 +212,6 @@ namespace matice
                 Console.Write("\n");
             }
             Console.Write("\n");
-
 
 
             Console.ReadKey();
