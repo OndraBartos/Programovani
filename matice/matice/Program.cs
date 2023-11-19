@@ -106,10 +106,10 @@ namespace matice
 
 
             //PROHAZOVÁNÍ SLOUPCŮ
-            Console.WriteLine("Zadej řádek, který chceš prohodit)");            //to samé co u řádků udělám u sloupců
+            Console.WriteLine("Zadej sloupec, který chceš prohodit");            //to samé co u řádků udělám u sloupců
             string m = Console.ReadLine();
             int nColSwap = int.Parse(m) - 1;
-            Console.WriteLine("Zadej řádek, se kterým ho chceš prohodit)");
+            Console.WriteLine("Zadej sloupec, se kterým ho chceš prohodit)");
             string n = Console.ReadLine();
             int mColSwap = int.Parse(n) - 1;
             Console.Write("\n");
