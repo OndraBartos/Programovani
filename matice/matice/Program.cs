@@ -86,16 +86,16 @@ namespace matice
             int[,] rowArray = (int[,])firstArray.Clone(); //musím si vytvořit novou pro každou operaci
             //int nRowSwap = 0; //který řádek prohazujeme
             //int mRowSwap = 1; //za který ho chceme prohodit
-            int[] tempArrayRow = new int[Row1]; //podobně jako u čísla chci přesunout celý řádek, proto si ho musím meziuložit v dočasném poli
-            for (int j = 0; j < rowArray.GetLength(0); j++) //zkopíruju nRowSwap do pomocného pole tempArray
+            int[] tempArrayRow = new int[Column1]; //podobně jako u čísla chci přesunout celý řádek, proto si ho musím meziuložit v dočasném poli
+            for (int j = 0; j < rowArray.GetLength(1); j++) //zkopíruju nRowSwap do pomocného pole tempArray
             {
                 tempArrayRow[j] = rowArray[nRowSwap, j];
             }
-            for (int j = 0; j < rowArray.GetLength(0); j++) //přepíšu nRowSwap na mRowSwap
+            for (int j = 0; j < rowArray.GetLength(1); j++) //přepíšu nRowSwap na mRowSwap
             {
                 rowArray[nRowSwap, j] = rowArray[mRowSwap, j];
             }
-            for (int j = 0; j < rowArray.GetLength(0); j++) //přepíšu mRowSwap pomocným polem tempArray
+            for (int j = 0; j < rowArray.GetLength(1); j++) //přepíšu mRowSwap pomocným polem tempArray
             {
                 rowArray[mRowSwap, j] = tempArrayRow[j];
             }
@@ -106,7 +106,7 @@ namespace matice
             Console.WriteLine("Zadej sloupec, který chceš prohodit");            //to samé co u řádků udělám u sloupců
             string m = Console.ReadLine();
             int nColSwap = int.Parse(m) - 1;
-            Console.WriteLine("Zadej sloupec, se kterým ho chceš prohodit)");
+            Console.WriteLine("Zadej sloupec, se kterým ho chceš prohodit");
             string n = Console.ReadLine();
             int mColSwap = int.Parse(n) - 1;
             Console.Write("\n");
@@ -115,7 +115,7 @@ namespace matice
             int[,] columnArray = (int[,])firstArray.Clone();
             //int nColSwap = 0;                                   
             //int mColSwap = 1;
-            int[] tempArrayColumn = new int[Column1];
+            int[] tempArrayColumn = new int[Row1];
             for (int i = 0; i < columnArray.GetLength(0); i++) //ulozím první sloupec do dočasného pole
             {
                 tempArrayColumn[i] = columnArray[i, nColSwap];
