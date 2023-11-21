@@ -4,7 +4,7 @@ namespace matice
 {
     internal class Program
     {
-        static void PrintArray(int[,] array)
+        static void PrintArray(int[,] array)            //udělám si vedle funkci kterou pak jenom vyvolávám abych ušetřil místo a čas psaním 
         {
             for (int i = 0; i < array.GetLength(0); i++) //vypsání do konzole
             {
@@ -71,15 +71,6 @@ namespace matice
             swapNumberArray[xfirst, yfirst] = second;
             swapNumberArray[xsecond, ysecond] = temp;
             PrintArray(swapNumberArray);
-            //for (int i = 0; i < swapNumberArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < swapNumberArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(swapNumberArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //PROHOZENÍ ŘÁDKŮ
@@ -109,15 +100,6 @@ namespace matice
                 rowArray[mRowSwap, j] = tempArrayRow[j];
             }
             PrintArray(rowArray);
-            //for (int i = 0; i < rowArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < rowArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(rowArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //PROHAZOVÁNÍ SLOUPCŮ
@@ -147,15 +129,6 @@ namespace matice
                 columnArray[i, mColSwap] = tempArrayColumn[i];
             }
             PrintArray(columnArray);
-            //for (int i = 0; i < columnArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < columnArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(columnArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //PROHOZENÍ POŘADÍ HLAVNÍ DIAGONÁLY
@@ -170,15 +143,6 @@ namespace matice
                 swapMDArray[reversindex, reversindex] = temporary;
             }
             PrintArray(swapMDArray);
-            //for (int i = 0; i < swapMDArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < swapMDArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(swapMDArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //PROHOZENÍ POŘADÍ VEDLEJŠÍ DIAGONÁLY
@@ -192,15 +156,6 @@ namespace matice
                 swapSDArray[j, i] = temporary2;
             }
             PrintArray(swapSDArray);
-            //for (int i = 0; i < swapSDArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < swapSDArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(swapSDArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //NÁSOBENÍ MATICE ČÍSLEM
@@ -217,15 +172,6 @@ namespace matice
             }
             Console.WriteLine("Zde je původní matice vynásobená vámi zvoleným číslem:");
             PrintArray(multiplyArray);
-            //for (int i = 0; i < multiplyArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < multiplyArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(multiplyArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //DRUHÁ MATICE NA DALŠÍ OPERACE
@@ -246,15 +192,6 @@ namespace matice
             }
             Console.WriteLine("Zde je druhá matice naplněná náhodnými čísly:");
             PrintArray(secondArray);
-            //for (int i = 0; i < secondArray.GetLength(0); i++) //vypsání druhé matice
-            //{
-            //    for (int j = 0; j < secondArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(secondArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //SČÍTÁNÍ/ODČÍTÁNÍ DVOU MATIC
@@ -276,15 +213,6 @@ namespace matice
                 }
                 Console.WriteLine("Zde je výsledná matice po sčítání:");
                 PrintArray(toAddArray);
-                //for (int i = 0; i < toAddArray.GetLength(0); i++) //vypsání do konzole
-                //{
-                //    for (int j = 0; j < toAddArray.GetLength(1); j++)
-                //    {
-                //        Console.Write(toAddArray[i, j] + " ");
-                //    }
-                //    Console.Write("\n");
-                //}
-                //Console.Write("\n");
             }
             else if (choice == "-")
             {
@@ -297,15 +225,6 @@ namespace matice
                 }
                 Console.WriteLine("Zde je výsledná matice po odčítání:");
                 PrintArray(toSubtractArray);
-                //for (int i = 0; i < toSubtractArray.GetLength(0); i++) //vypsání do konzole
-                //{
-                //    for (int j = 0; j < toSubtractArray.GetLength(1); j++)
-                //    {
-                //        Console.Write(toSubtractArray[i, j] + " ");
-                //    }
-                //    Console.Write("\n");
-                //}
-                //Console.Write("\n");
             }
             else
             {
@@ -324,15 +243,6 @@ namespace matice
             }
             Console.WriteLine("Zde je výsledná matice po transpozici = převrácení kolem hlavní diagonály:");
             PrintArray(rotationArray);
-            //for (int i = 0; i < rotationArray.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < rotationArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(rotationArray[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             //NÁSOBENÍ DVOU MATIC
@@ -347,15 +257,6 @@ namespace matice
             }
             Console.WriteLine("Zde je výsledná matice po násobení:");
             PrintArray(tempArray10);
-            //for (int i = 0; i < tempArray10.GetLength(0); i++) //vypsání do konzole
-            //{
-            //    for (int j = 0; j < tempArray10.GetLength(1); j++)
-            //    {
-            //        Console.Write(tempArray10[i, j] + " ");
-            //    }
-            //    Console.Write("\n");
-            //}
-            //Console.Write("\n");
 
 
             Console.WriteLine("KONEC, stiskněte jakoukoli klávesu pro ukončení");
