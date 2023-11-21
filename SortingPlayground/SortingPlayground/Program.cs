@@ -34,7 +34,13 @@ namespace SortingPlayground
         {
             int[] sortedArray = (int[])array.Clone(); // Řaď v tomto poli, ve kterém je výchoze zkopírováno všechno ze vstupního pole.
             //TODO: Naimplementuj selection sort.
-             
+            for (int a = 0; a < sortedArray.Length; a++)
+            {
+                for (int b = 0; b < sortedArray.Length - 1; b++)
+                {
+                    
+                }
+            }
 
             return sortedArray;
         }
@@ -42,9 +48,9 @@ namespace SortingPlayground
         static int[] InsertionSort(int[] array)
         {
             int[] sortedArray = (int[])array.Clone(); // Řaď v tomto poli, ve kterém je výchoze zkopírováno všechno ze vstupního pole.
-            /*
-             * TODO: Naimplementuj insertion sort.
-             */
+            //TODO: Naimplementuj insertion sort.
+             
+
             return sortedArray;
         }
 
