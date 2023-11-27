@@ -34,14 +34,23 @@ namespace SortingPlayground
         {
             int[] sortedArray = (int[])array.Clone(); // Řaď v tomto poli, ve kterém je výchoze zkopírováno všechno ze vstupního pole.
             //TODO: Naimplementuj selection sort.
-            for (int a = 0; a < sortedArray.Length; a++)
-            {
-                for (int b = 0; b < sortedArray.Length - 1; b++)
-                {
-                    
-                }
-            }
+            int n = sortedArray.Length;
 
+            for (int i = 0; i < n - 1; i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (sortedArray[j] < sortedArray[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                //prohození prvku i s prvkem minIndex
+                int temp = sortedArray[minIndex];
+                sortedArray[minIndex] = sortedArray[i];
+                sortedArray[i] = temp;
+            }
             return sortedArray;
         }
 
@@ -49,8 +58,20 @@ namespace SortingPlayground
         {
             int[] sortedArray = (int[])array.Clone(); // Řaď v tomto poli, ve kterém je výchoze zkopírováno všechno ze vstupního pole.
             //TODO: Naimplementuj insertion sort.
-             
-
+            for (int j = 0; j < sortedArray.Length - 1; j++)
+            {
+                for (int i = 1; i < sortedArray.Length; i++)
+                {
+                    j = i;
+                    while (j > 0 && sortedArray[j - 1] > sortedArray[j])
+                    {
+                        int temp = sortedArray[j]; //prohození prvku j s prvkem nalevo od něj
+                        sortedArray[j] = (int)sortedArray[j - 1];
+                        sortedArray[j - 1] = temp;
+                        j--; // j - 1
+                    }
+                }
+            }    
             return sortedArray;
         }
 
