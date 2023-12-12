@@ -35,7 +35,7 @@ namespace ClassPlayground
 
         public void CalculateAspectRatio()
         {
-            float aspectRatio = width / height;
+            float aspectRatio = (float)width / height;
             if ( aspectRatio > 1 )
             {
                 Console.WriteLine("obdelník je široký");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,20 +66,46 @@ namespace ClassPlayground
     internal class Program
     {
         static void Main(string[] args)
-        {
-            Rectangle testrect = new Rectangle(10, 5);  //nejdřív šířka, potom výška
-            testrect.CalculateArea();
-            testrect.CalculateAspectRatio();
-            bool inside = testrect.CalculatePoint(-1, -1);  //nejdřív šířka, potom výška
-            //Console.WriteLine(inside); vrátí jenom true nebo false
-            if (inside)
-            {
-                Console.WriteLine("leží uvnitř");
-            }
-            else
-            {
-                Console.WriteLine("neleží uvnitř");
-            }
+        {   
+            //úkol 1
+            //Console.WriteLine("Zadej velikost obdelníku (nejdřív šířku, enter, potom výšku)");
+            //string a = Console.ReadLine();
+            //int x = int.Parse(a);
+            //string b = Console.ReadLine();
+            //int y = int.Parse(b);
+
+            //Rectangle testrect = new Rectangle(x, y);  //nejdřív šířka, potom výška
+            //testrect.CalculateArea();
+            //testrect.CalculateAspectRatio();
+            
+            //Console.WriteLine("Zadej souřadnice bodu u kterého chceš zjistit zda je uvnitř obdelníku (nejdřív šířku, enter, potom výšku)");
+            //string c = Console.ReadLine();
+            //int m = int.Parse(c);
+            //string d = Console.ReadLine();
+            //int n = int.Parse(d);
+            //bool inside = testrect.CalculatePoint(m, n);  //nejdřív šířka, potom výška
+            ////Console.WriteLine(inside); vrátí jenom true nebo false
+            //if (inside)
+            //{
+            //    Console.WriteLine("leží uvnitř");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("neleží uvnitř");
+            //}
+
+            Console.WriteLine("\n");
+            //úkol 2
+            BankAccount myBankAcount = new BankAccount(123123123, "Ondra Bartoš", "Česká koruna", 100 );
+            //myBankAcount.accountNumber = 123123123;
+            //myBankAcount.holderName = "Ondra Bartoš";
+            //myBankAcount.currency = "Česká koruna";       musím to zadat do ty zavorky tomu rovnou
+            //myBankAcount.balance = 100;
+            Console.WriteLine($"váš účet s číslem: {myBankAcount.accountNumber} je napsán na držitele: {myBankAcount.holderName}," +
+                $" měna je nastavená na: {myBankAcount.currency} a aktuální zůstatek je: {myBankAcount.balance}");
+            Console.Write("\n");
+            myBankAcount.Deposit();
+            myBankAcount.Withdraw();
 
             Console.ReadKey();
         }
