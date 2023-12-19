@@ -104,8 +104,34 @@ namespace ClassPlayground
             Console.WriteLine($"váš účet s číslem: {myBankAcount.accountNumber} je napsán na držitele: {myBankAcount.holderName}," +
                 $" měna je nastavená na: {myBankAcount.currency} a aktuální zůstatek je: {myBankAcount.balance}");
             Console.Write("\n");
-            myBankAcount.Deposit();
-            myBankAcount.Withdraw();
+            Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
+            string choice1 = Console.ReadLine();
+            switch (choice1)
+            {
+                case "vložit":
+                    myBankAcount.Deposit();
+                    break;
+
+                case "vybrat":
+                    myBankAcount.Withdraw();
+                    break;
+            }
+
+            Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
+            string choice2 = Console.ReadLine();
+            switch (choice2)
+            {
+                case "vložit":
+                    myBankAcount.Deposit();
+                    break;
+
+                case "vybrat":
+                    myBankAcount.Withdraw();
+                    break;
+            }
+
+            //myBankAcount.Deposit();
+            //myBankAcount.Withdraw();
 
             Console.ReadKey();
         }
