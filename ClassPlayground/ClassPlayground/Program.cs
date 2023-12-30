@@ -66,8 +66,8 @@ namespace ClassPlayground
     internal class Program
     {
         static void Main(string[] args)
-        {   
-            //úkol 1
+        {
+            //úkol 1.
             //Console.WriteLine("Zadej velikost obdelníku (nejdřív šířku, enter, potom výšku)");
             //string a = Console.ReadLine();
             //int x = int.Parse(a);
@@ -77,7 +77,7 @@ namespace ClassPlayground
             //Rectangle testrect = new Rectangle(x, y);  //nejdřív šířka, potom výška
             //testrect.CalculateArea();
             //testrect.CalculateAspectRatio();
-            
+
             //Console.WriteLine("Zadej souřadnice bodu u kterého chceš zjistit zda je uvnitř obdelníku (nejdřív šířku, enter, potom výšku)");
             //string c = Console.ReadLine();
             //int m = int.Parse(c);
@@ -93,46 +93,84 @@ namespace ClassPlayground
             //{
             //    Console.WriteLine("neleží uvnitř");
             //}
+            //bonus 1.
+            //Console.WriteLine("Zadej velikost poloměru kruhu");
+            //string c = Console.ReadLine();
+            //float r = float.Parse(c);
+            //Console.WriteLine("Zadej souřadnice středu kruhu kruhu (nejdřív x pak y)");
+            //string a = Console.ReadLine();
+            //int x = int.Parse(a);
+            //string b = Console.ReadLine();
+            //int y = int.Parse(b);
+            //Circle myCircle = new Circle(r, x, y);
+            //myCircle.CalculateArea();
+            //Console.WriteLine("Zadej souřadnice bodu u kterého chceš zjistit zda je uvnitř kruhu (nejdřív x pak y)");
+            //string o = Console.ReadLine();
+            //int m = int.Parse(o);
+            //string p = Console.ReadLine();
+            //int n = int.Parse(p);
+            //bool inside = myCircle.CalculatePoint(m, n); 
+            ////Console.WriteLine(inside); vrátí jenom true nebo false
+            //if (inside)
+            //{
+            //    Console.WriteLine("leží uvnitř");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("neleží uvnitř");
+            //}
+
+
+
 
             Console.WriteLine("\n");
-            //úkol 2
-            BankAccount myBankAcount = new BankAccount(123123123, "Ondra Bartoš", "Česká koruna", 100 );
-            //myBankAcount.accountNumber = 123123123;
-            //myBankAcount.holderName = "Ondra Bartoš";
-            //myBankAcount.currency = "Česká koruna";       musím to zadat do ty zavorky tomu rovnou
-            //myBankAcount.balance = 100;
-            Console.WriteLine($"váš účet s číslem: {myBankAcount.accountNumber} je napsán na držitele: {myBankAcount.holderName}," +
-                $" měna je nastavená na: {myBankAcount.currency} a aktuální zůstatek je: {myBankAcount.balance}");
-            Console.Write("\n");
-            Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
-            string choice1 = Console.ReadLine();
-            switch (choice1)
-            {
-                case "vložit":
-                    myBankAcount.Deposit();
-                    break;
+            ////úkol 2.
+            ////BankAccount myBankAccount = new BankAccount(123123123, "Ondra Bartoš", "Česká koruna", 100);  starý konstruktor
+            ////myBankAccount.accountNumber = 123123123;
+            ////myBankAccount.holderName = "Ondra Bartoš";
+            ////myBankAccount.currency = "Česká koruna";       !!!musím to zadat do ty zavorky tomu rovnou!!!
+            ////myBankAccount.balance = 100;
+            ////Console.WriteLine($"váš účet s číslem: {myBankAccount.accountNumber} je napsán na držitele: {myBankAccount.holderName}," +
+            ////    $" měna je nastavená na: {myBankAccount.currency} a aktuální zůstatek je: {myBankAccount.balance}");
+            //Console.WriteLine("Zadejte jméno držitele nového účtu(mezitím enter) a poté měnu ve které bude veden.");
+            //string name = Console.ReadLine();
+            //string chosenCurency = Console.ReadLine();
+            //BankAccount myBankAccount = new BankAccount(name, chosenCurency);
+            //Console.Write("\n");
+            //Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
+            //string choice1 = Console.ReadLine();
+            //switch (choice1)
+            //{
+            //    case "vložit":
+            //        myBankAccount.Deposit();
+            //        break;
 
-                case "vybrat":
-                    myBankAcount.Withdraw();
-                    break;
-            }
+            //    case "vybrat":
+            //        myBankAccount.Withdraw();
+            //        break;
+            //}
+            //Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
+            //string choice2 = Console.ReadLine();
+            //switch (choice2)
+            //{
+            //    case "vložit":
+            //        myBankAccount.Deposit();
+            //        break;
 
-            Console.WriteLine("Chcete vložit nebo vybrart peníze? (vložit/vybrat)");
-            string choice2 = Console.ReadLine();
-            switch (choice2)
-            {
-                case "vložit":
-                    myBankAcount.Deposit();
-                    break;
+            //    case "vybrat":
+            //        myBankAccount.Withdraw();
+            //        break;
+            //}
+            ////myBankAcount.Deposit();
+            ////myBankAcount.Withdraw();
+            //myBankAccount.Transfer(150, 666777888);
+            
 
-                case "vybrat":
-                    myBankAcount.Withdraw();
-                    break;
-            }
+            Console.WriteLine("\n");
+            //úkol 3.
 
-            //myBankAcount.Deposit();
-            //myBankAcount.Withdraw();
 
+            Console.WriteLine("konec programu");
             Console.ReadKey();
         }
     }

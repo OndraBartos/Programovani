@@ -22,6 +22,10 @@ namespace ClassPlayground
     //                                                                           - Při jeho zavolání nastav jméno a měnu podle vstupních parametrů, accountNumber nastav jako náhodně
     //vygenerované číslo velké alespoň 100 000 000 a menší, než 10 000 000 000 a balance nastav na nulu
 
+    //2) BONUS - Až vytvoříš BankAccount, přidej varianty funkcí výběru, vkladu a převodu s měnou jako vstupním parametrem, tedy pokud měna při vkladu/výběru(nebo měna účtu, na který se převádí)
+    //je odlišná od měny, ve které je účet veden, zohledni to a správně vynásob peníze kurzem, který najdeš na internetu. Pro uložení kurzů si můžeš udělat novou statickou třídu,
+    //ve které budeš mít public static float proměnné pojmenované podle toho, jaký kurz z jaké do jaké měny představují, a jeho hodnotu.
+
     internal class BankAccount
     {
         public int accountNumber;
@@ -29,14 +33,24 @@ namespace ClassPlayground
         public string currency;
         public float balance;
 
-        public BankAccount(int accountNumber, string holderName, string currency, float balance)
+        //public BankAccount(int accountNumber, string holderName, string currency, float balance)
+        //{
+        //    this.accountNumber = accountNumber;
+        //    this.holderName = holderName;
+        //    this.currency = currency;                                 jeden konstruktor
+        //    this.balance = balance;
+        //}
+        public BankAccount(string holderName, string currency)          //druhý konstruktor který chtěl
         {
-            this.accountNumber = accountNumber;
             this.holderName = holderName;
             this.currency = currency;
-            this.balance = balance;
-        }
+            this.balance = 0;
+            Random rnd = new Random();
+            this.accountNumber = rnd.Next(100000000, 1000000000);
 
+            Console.WriteLine($"váš nový účet s číslem: {accountNumber} je napsán na držitele: {holderName}," +
+                $" měna je nastavená na: {currency} a aktuální zůstatek je: {balance}");
+        }
         public void Deposit()
         {
             Console.WriteLine("Zadejte částku, kterou chcete vložit na účet");
@@ -60,6 +74,17 @@ namespace ClassPlayground
                 Console.WriteLine("Nemáte dostatečný zůstatek na váš požadovaný výběr");
             }
         }
-
+        public void Transfer(float balance2, int accountNumber2)
+        {
+            if (balance >= balance2)
+            {
+                balance = balance - balance2;
+                Console.WriteLine($"Na účet {accountNumber2} jsme převedli {balance2} a váš nový zůstatek na účtu je: {balance}");
+            }
+            else
+            {
+                Console.WriteLine("Nemáte dostatečný zůstatek na váš požadovaný převod na jiný účet");
+            }
+        }
     }
 }
