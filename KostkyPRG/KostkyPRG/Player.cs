@@ -24,9 +24,18 @@ namespace KostkyPRG
             //Console.WriteLine("Zadej svou sázku pro další kolo");
             //string x = Console.ReadLine();
             //int myBetValue = int.Parse(x);
-            Console.WriteLine($"Sázka {myBetValue} uložena");
-            balance = balance - myBetValue;
-            Console.WriteLine($"Váš aktuální zůstatek je {balance}");
+            if (balance >= myBetValue) //pokud na to máme vsadíme
+            {
+                Console.WriteLine($"Sázka {myBetValue} uložena");
+                balance = balance - myBetValue;
+                Console.WriteLine($"Váš aktuální zůstatek je {balance}");
+            }
+            else //pokud na to nemáme znamená to, že jsme prohráli a hra tím končí
+            {
+                Console.WriteLine("Nedostatečný balance");
+                Console.WriteLine("GAME OVER, PROHRÁL JSI  :((");
+                //return true (nebo něco takovýho možná); musím vymyslet něco jak tady ukončit program jako prohru           
+            }
         }
         public int getBalance()
         {
@@ -34,15 +43,15 @@ namespace KostkyPRG
         }
         public void myChoice()  //funkce pro sázku na číslo
         {
-            Console.WriteLine("Napište na jaké číslo si chcete vsdadit");
+            Console.WriteLine("Napište na jaké číslo si chcete vsadit");
             string a = Console.ReadLine();
-            int choice = int.Parse(a);
+            choice = int.Parse(a);
             Console.WriteLine($"Sázíte na číslo {choice}"); //zase na zkoušku         
         }
-        public int ChoiceValue()
+        public int myNumber() //tohle si můžu zavolat v jiné třídě abych mohl zjistit vítěze
         {
             return choice;
         }
-
+                
     }
 }

@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASCII ARt.cs" />
     <Compile Include="Dice.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="OtherPlayers.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
