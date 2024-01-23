@@ -108,15 +108,20 @@ namespace KostkyPRG
             if (myDifference < closestEnemyDifference) //pokud mám menší rozdíl jak boti vyhrávám já
             {
                 myPlayer.balance += myBetValue * (playersCount + 1); //přičtou se mi na účet peníze - výhra = výška sázky hrát počet hráčů (boti + já)
+                Console.ForegroundColor = ConsoleColor.Green; //text bude zelený když vyhraju
                 Console.WriteLine("Vyhráli jste gratulace, jen ať se peníze točí dál");
                 Console.WriteLine($"Nový stav vašeho účtu je: {myPlayer.balance}");
+                Console.ResetColor();
             }
             else if (myDifference == closestEnemyDifference) //pokud máme stejný rozdíl tak nevyhrál nikdo a všíchni máme smůlu
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Smůla, trefil jsi stejný číslo jako protihráč = nevyhrává nikdo. Zkus to znovu a nezapomeň, kdo nehraje nevyhraje!");
+                Console.ResetColor();
             }
             else //pokud nevyhraju já nebo nemáme stejný výherní čísla tak vyhrávaj boti
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Smůla, prohrál si. Zkus to znovu a nezapomeň, kdo nehraje nevyhraje!");
                 Player winningBot = null; //s pomocí AI
                 foreach (Player enemyPlayer in otherPlayers.EnemyPlayerList)
@@ -133,12 +138,11 @@ namespace KostkyPRG
                     winningBot.balance += myBetValue * (playersCount + 1);
                     Console.WriteLine($"Výhra pro {winningBot.playerName}! Nový stav jeho účtu je: {winningBot.balance}");
                 }
+                Console.ResetColor();
             }
             Console.WriteLine($"Uživatel {myPlayer.playerName} má aktuální kapitál: {myPlayer.balance}");
             otherPlayers.showPlayers(); //vypsání ostatních hráčů
             Console.ReadKey();
-
-
             //bool continuePlaying = true;
             //while (continuePlaying)
             //{
@@ -200,15 +204,20 @@ namespace KostkyPRG
             if (myDifference < closestEnemyDifference) //pokud mám menší rozdíl jak boti vyhrávám já
             {
                 myPlayer.balance += myBetValue * (playersCount + 1); //přičtou se mi na účet peníze - výhra = výška sázky hrát počet hráčů (boti + já)
+                Console.ForegroundColor = ConsoleColor.Green; //text bude zelený když vyhraju
                 Console.WriteLine("Vyhráli jste gratulace, jen ať se peníze točí dál");
                 Console.WriteLine($"Nový stav vašeho účtu je: {myPlayer.balance}");
+                Console.ResetColor();
             }
             else if (myDifference == closestEnemyDifference) //pokud máme stejný rozdíl tak nevyhrál nikdo a všíchni máme smůlu
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("Smůla, trefil jsi stejný číslo jako protihráč = nevyhrává nikdo. Zkus to znovu a nezapomeň, kdo nehraje nevyhraje!");
+                Console.ResetColor();
             }
             else //pokud nevyhraju já nebo nemáme stejný výherní čísla tak vyhrávaj boti
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Smůla, prohrál si. Zkus to znovu a nezapomeň, kdo nehraje nevyhraje!");
                 Player winningBot = null; //s pomocí AI
                 foreach (Player enemyPlayer in otherPlayers.EnemyPlayerList)
@@ -225,6 +234,7 @@ namespace KostkyPRG
                     winningBot.balance += myBetValue * (playersCount + 1);
                     Console.WriteLine($"Výhra pro {winningBot.playerName}! Nový stav jeho účtu je: {winningBot.balance}");
                 }
+                Console.ResetColor();
             }
             Console.WriteLine($"Uživatel {myPlayer.playerName} má aktuální kapitál: {myPlayer.balance}");
             otherPlayers.showPlayers(); //vypsání ostatních hráčů

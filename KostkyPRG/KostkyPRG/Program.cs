@@ -11,11 +11,13 @@ namespace KostkyPRG
         static void Main(string[] args)
         {
             Console.WriteLine('\n');
+            Console.ForegroundColor = ConsoleColor.Yellow;
             ASCII_ARt newArt = new ASCII_ARt();  //třída na art...
             newArt.welcome();  //nápis welcome v konzoli
             Console.WriteLine('\n');
             Console.WriteLine("Toto je hra Kostky od Ondřeje Bartoše, užijte si hraní" +
                 "       (pro start stiskněte jakoukoli klávesu)");
+            Console.ResetColor();
             Console.ReadKey();
             Console.Clear();
 
