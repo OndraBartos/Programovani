@@ -67,7 +67,7 @@ namespace Grafy
             // 5 - 2, 3
             // 6 - 1, 2, 4
 
-            Node node1 = new Node(1); //vytvoření všech noulů grafu
+            Node node1 = new Node(1); //vytvoření všech nodů/uzlů grafu
             Node node2 = new Node(2);
             Node node3 = new Node(3);
             Node node4 = new Node(4);
@@ -93,6 +93,7 @@ namespace Grafy
             node6.AddNeighbour(node1);
             node6.AddNeighbour(node2);
             node6.AddNeighbour(node4);
+
 
             Node currentNode = node1;
             while (true)

@@ -61,10 +61,19 @@ namespace DFS
             List<int> pathToTargetNode = new List<int>();
 
             Node currentNode = graph.root; // We start in root and we want to find a path from root to the target node
-
-            /*
-             * TODO: Naimplementujte prohledávání do hloubky
-             */
+            //TODO: Naimplementujte prohledávání do hloubky
+            
+            while(true) 
+            {
+                if (currentNode.index == targetNodeIndex)
+                {
+                    break;
+                }
+                else
+                {
+                    
+                }
+            }
 
             return pathToTargetNode;
         }
@@ -72,7 +81,7 @@ namespace DFS
         static void Main(string[] args)
         {
             // Change this variable as you wish, just watch out that deeper trees are not very readable in console
-            int treeDepth = 3;
+            int treeDepth = 5;
             BinaryTree binaryTree = new BinaryTree(treeDepth);
 
             // Print the tree
