@@ -11,9 +11,11 @@ namespace Procvicovani
     {
         static void Main(string[] args)
         {
+            Console.WriteLine($"zadej první číslo");
             string a = Console.ReadLine(); //načtu první číslo od uživatele
             int num1 = int.Parse(a);
 
+            Console.WriteLine($"zadej druhé číslo");
             string b = Console.ReadLine(); //načtu druhé číslo od uživatele
             int num2 = int.Parse(b);
 
@@ -67,7 +69,7 @@ namespace Procvicovani
             int x = int.Parse(width);
             int[] numArray = new int[x]; //vytvořím nové pole o velikosti 100 
             int indexOfArray = 0; //nastavím počáteční index pole na nulu
-            char[] charArray = new char[x - 1]; //velikost char array je o jedno menší než velikost pole čísel
+            char[] charArray = new char[numArray.Length - 1]; //velikost char array je o jedno menší než velikost pole čísel
             int charIndex = 0;
 
             Console.WriteLine("nyní můžete psát čísla, pro ukončení napište stop");
@@ -96,15 +98,23 @@ namespace Procvicovani
                     Console.WriteLine("Neplatný vstup, zadej platné číslo nebo 'stop'.");
                 }
             }
-            Console.WriteLine("Zadána čísla:");
+            Console.Write("\n");
+            Console.Write("Zadána čísla:");
             for (int i = 0; i < indexOfArray; i++)
             {
                 Console.Write(numArray[i] + " ");
             }
 
+            Console.Write("\n");
+            Console.WriteLine("nyní můžete psát znaménka pro početní operace, pro ukončení napište stop");
             while (true)
             {
                 string vstup = Console.ReadLine();
+
+                if (vstup == "stop") //ukončí cyklus pokud napíše stop
+                {
+                    break;
+                }
 
                 // Pokud je pole operací plné, informujeme uživatele a ukončíme cyklus
                 if (charIndex >= charArray.Length)
@@ -114,10 +124,11 @@ namespace Procvicovani
                 }
 
                 // Pokud uživatel zadal platnou operaci (+ nebo -), uložíme ji do pole operací
-                if (vstup == "+" || vstup == "-")
+                if (vstup == "+" || vstup == "-" || vstup == "*" || vstup == "/")
                 {
                     charArray[charIndex] = vstup[0]; // Ukládáme jen první znak
                     charIndex++;
+                    Console.WriteLine($"znaménko přijato zbývá: {charArray.Length - charIndex}");
                 }
             }
 
@@ -125,6 +136,7 @@ namespace Procvicovani
             if (indexOfArray != charIndex + 1)
             {
                 Console.WriteLine("Chybná kombinace čísel a operací.");
+                Console.ReadKey();
                 return;
             }
 
@@ -138,6 +150,14 @@ namespace Procvicovani
                 else if (charArray[i] == '-')
                 {
                     vysledek -= numArray[i + 1];
+                }
+                else if (charArray[i] ==  '*')
+                {
+                    vysledek *= numArray[i + 1];
+                }
+                else if (charArray[i] == '/')
+                {
+                    vysledek /= numArray[i + 1];
                 }
             }
 
