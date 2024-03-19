@@ -16,8 +16,8 @@ namespace MalovaniUkol
         {
             InitializeComponent();
 
-            this.Width = 900;
-            this.Height = 700;
+            this.Width = 995; //daná šířka a výška formuláře aby se do něj hezky vešlo plátno i panel
+            this.Height = 660;
             bm = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(bm);
             g.Clear(Color.White);
@@ -27,9 +27,11 @@ namespace MalovaniUkol
         Bitmap bm;
         Graphics g;
         bool paint = false;
-        Point px, py;
+        Point px, py; //souřadnice myši pro sledování jejího pohybu v pictureBox1_MouseMove
+        //Color myColor = Color.Black;
         Pen myPen = new Pen(Color.Black, 1);
-        Pen Eraser = new Pen(Color.White, 25); //guma má bílou barvu a danou velikost 25px
+        Brush myBrush = new SolidBrush(Color.Black);
+        Pen Eraser = new Pen(Color.White, 30); //guma má bílou barvu a danou velikost 30px
         int index; //index na volbu kreslení - pero, guma, kruh, čtverec
         int x, y, fX, fY, sX, sY; //pro kreslení objektů
         //x - aktuální poloha myši na souřadnici x
@@ -37,6 +39,18 @@ namespace MalovaniUkol
         //sX, sY - počáteční body kreslení, odkud zmáčknu myš - startX, startY
         //fX - finální šírka objektu - final souřadnice x
         //fY - finální výška objektu - final souřadnice y
+
+        //funkce na změnu barvy pera
+        private void ChangePenColor(Color newColor)
+        {
+            myPen.Color = newColor; //změníme barvu pera na novou barvu, kterou přijmeme jako parametr funkce
+        }
+        //funkce na změnu tloušťky pera
+        private void ChangePenSize(float myWidth)
+        {
+            myPen.Width = myWidth; //změníme tloušťky pera na novou tloušťky, kterou přijmeme jako parametr funkce
+        }
+
 
 
 
@@ -46,7 +60,7 @@ namespace MalovaniUkol
             py = e.Location;
 
             sX = e.Location.X;  //na kreslení objektů
-            sY = e.Location.Y;  //když zmáčknu myš, tak ty body uloží jako počáteční body kreslení
+            sY = e.Location.Y;  //když zmáčknu myš, tak ty souřadnice uloží jako počáteční bod kreslení
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) //sleduje pohyb myši
         {
@@ -54,8 +68,12 @@ namespace MalovaniUkol
             {
                 if (index == 1)
                 {
-                    px = e.Location; //aktuální pozice myši uložená do px
+                    px = e.Location; //aktuální pozice myši uložená do px                   
                     g.DrawLine(myPen, px, py); //nakreslí čáru mezi px a py
+                    float r = myPen.Width; //r - průměr kružnice (šířka, výška)
+                    float Cx = px.X - r / 2; //souřadnice pro generování kruhů
+                    float Cy = py.Y - r / 2; //Cx/Cy - circle x/circle y
+                    g.FillEllipse(myBrush, Cx, Cy, r, r); //kruh na vyplnění mezer
                     py = px; //nastaví novou hodnotu py na aktální polohu myši aby se dalo kreslit dál
                 }
                 else if (index == 2)
@@ -72,12 +90,9 @@ namespace MalovaniUkol
             fX = e.Location.X - sX; //finální šírka objektu - final souřadnice x
             fY = e.Location.Y - sY; //finální výška objektu - final souřadnice y
         }
-
-        
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            paint = false; //jakmile pustim myš a už jí nedržim stisklou tak false
+            paint = false; //jakmile pustim myš a už jí nedržim stisklou tak -> false
 
 
             fX = x - sX; //vypočítání finálních souřadnic -> aktuální souřadnice mínus původní souřadnice
@@ -90,6 +105,10 @@ namespace MalovaniUkol
             else if (index == 4)                            //čtverec a kruh stejným způsobem
             {
                 g.DrawRectangle(myPen, sX, sY, fX, fY); //čtverec
+            }
+            else if (index == 5)
+            {
+                g.DrawLine(myPen, sX, sY, x, y);
             }
         }
         private void newPageButton_Click(object sender, EventArgs e)
@@ -114,6 +133,10 @@ namespace MalovaniUkol
         {
             index = 4;
         }
+        private void buttonLine_Click(object sender, EventArgs e)
+        {
+            index = 5;
+        }
         private void pictureBox1_Paint(object sender, PaintEventArgs e) //dělá mi nákres pri kerslení objektů
         {
             Graphics g = e.Graphics;
@@ -127,7 +150,58 @@ namespace MalovaniUkol
                 {
                     g.DrawRectangle(myPen, sX, sY, fX, fY); //čtverec
                 }
+                else if (index == 5)
+                {
+                    g.DrawLine(myPen, sX, sY, x, y);
+                }
             }
+        }
+        //Nastavování barev
+        private void colorBlack_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Black);
+        }
+        private void colorWhite_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.White);
+        }
+        private void colorCyan_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Cyan);
+        }
+        private void colorGreen_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Green);
+        }
+        private void colorBlue_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Blue);
+        }
+        private void colorYellow_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Yellow);
+        }
+        private void colorPurple_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Purple);
+        }
+        private void colorOrange_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Orange);
+        }
+        private void colorPink_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Pink);
+        }
+        private void colorRed_Click(object sender, EventArgs e)
+        {
+            ChangePenColor(Color.Red);
+        }
+
+        //Nastavení tlouišťky čáry
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            ChangePenSize(hScrollBar1.Value);
         }
 
 

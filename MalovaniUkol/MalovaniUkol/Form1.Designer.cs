@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.optionsPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonLine = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonCircle = new System.Windows.Forms.Button();
             this.buttonRectangle = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             // optionsPanel
             // 
             this.optionsPanel.BackColor = System.Drawing.Color.Silver;
-            this.optionsPanel.Controls.Add(this.button1);
+            this.optionsPanel.Controls.Add(this.buttonLine);
             this.optionsPanel.Controls.Add(this.button3);
             this.optionsPanel.Controls.Add(this.buttonCircle);
             this.optionsPanel.Controls.Add(this.buttonRectangle);
@@ -77,19 +77,20 @@
             this.optionsPanel.Controls.Add(this.colorGreen);
             this.optionsPanel.Controls.Add(this.colorPink);
             this.optionsPanel.Controls.Add(this.colorWhite);
-            this.optionsPanel.Location = new System.Drawing.Point(12, 12);
+            this.optionsPanel.Location = new System.Drawing.Point(15, 12);
             this.optionsPanel.Name = "optionsPanel";
-            this.optionsPanel.Size = new System.Drawing.Size(956, 84);
+            this.optionsPanel.Size = new System.Drawing.Size(950, 84);
             this.optionsPanel.TabIndex = 0;
             // 
-            // button1
+            // buttonLine
             // 
-            this.button1.Location = new System.Drawing.Point(612, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 41);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonLine.Location = new System.Drawing.Point(612, 19);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(53, 41);
+            this.buttonLine.TabIndex = 21;
+            this.buttonLine.Text = "Čára";
+            this.buttonLine.UseVisualStyleBackColor = true;
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
             // button3
             // 
@@ -162,9 +163,12 @@
             // hScrollBar1
             // 
             this.hScrollBar1.Location = new System.Drawing.Point(159, 35);
+            this.hScrollBar1.Minimum = 1;
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(143, 25);
             this.hScrollBar1.TabIndex = 13;
+            this.hScrollBar1.Value = 1;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // label1
             // 
@@ -178,99 +182,109 @@
             // colorBlack
             // 
             this.colorBlack.BackColor = System.Drawing.Color.Black;
-            this.colorBlack.Location = new System.Drawing.Point(18, 30);
+            this.colorBlack.Location = new System.Drawing.Point(13, 29);
             this.colorBlack.Name = "colorBlack";
-            this.colorBlack.Size = new System.Drawing.Size(20, 18);
+            this.colorBlack.Size = new System.Drawing.Size(25, 25);
             this.colorBlack.TabIndex = 2;
             this.colorBlack.UseVisualStyleBackColor = false;
+            this.colorBlack.Click += new System.EventHandler(this.colorBlack_Click);
             // 
             // colorYellow
             // 
             this.colorYellow.BackColor = System.Drawing.Color.Yellow;
-            this.colorYellow.Location = new System.Drawing.Point(70, 54);
+            this.colorYellow.Location = new System.Drawing.Point(65, 54);
             this.colorYellow.Name = "colorYellow";
-            this.colorYellow.Size = new System.Drawing.Size(20, 18);
+            this.colorYellow.Size = new System.Drawing.Size(25, 25);
             this.colorYellow.TabIndex = 11;
             this.colorYellow.UseVisualStyleBackColor = false;
+            this.colorYellow.Click += new System.EventHandler(this.colorYellow_Click);
             // 
             // colorCyan
             // 
             this.colorCyan.BackColor = System.Drawing.Color.Cyan;
-            this.colorCyan.Location = new System.Drawing.Point(44, 30);
+            this.colorCyan.Location = new System.Drawing.Point(39, 29);
             this.colorCyan.Name = "colorCyan";
-            this.colorCyan.Size = new System.Drawing.Size(20, 18);
+            this.colorCyan.Size = new System.Drawing.Size(25, 25);
             this.colorCyan.TabIndex = 3;
             this.colorCyan.UseVisualStyleBackColor = false;
+            this.colorCyan.Click += new System.EventHandler(this.colorCyan_Click);
             // 
             // colorOrange
             // 
             this.colorOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.colorOrange.Location = new System.Drawing.Point(96, 54);
+            this.colorOrange.Location = new System.Drawing.Point(91, 54);
             this.colorOrange.Name = "colorOrange";
-            this.colorOrange.Size = new System.Drawing.Size(20, 18);
+            this.colorOrange.Size = new System.Drawing.Size(25, 25);
             this.colorOrange.TabIndex = 10;
             this.colorOrange.UseVisualStyleBackColor = false;
+            this.colorOrange.Click += new System.EventHandler(this.colorOrange_Click);
             // 
             // colorPurple
             // 
             this.colorPurple.BackColor = System.Drawing.Color.Purple;
-            this.colorPurple.Location = new System.Drawing.Point(96, 30);
+            this.colorPurple.Location = new System.Drawing.Point(91, 29);
             this.colorPurple.Name = "colorPurple";
-            this.colorPurple.Size = new System.Drawing.Size(20, 18);
+            this.colorPurple.Size = new System.Drawing.Size(25, 25);
             this.colorPurple.TabIndex = 4;
             this.colorPurple.UseVisualStyleBackColor = false;
+            this.colorPurple.Click += new System.EventHandler(this.colorPurple_Click);
             // 
             // colorRed
             // 
             this.colorRed.BackColor = System.Drawing.Color.Red;
-            this.colorRed.Location = new System.Drawing.Point(122, 54);
+            this.colorRed.Location = new System.Drawing.Point(117, 54);
             this.colorRed.Name = "colorRed";
-            this.colorRed.Size = new System.Drawing.Size(20, 18);
+            this.colorRed.Size = new System.Drawing.Size(25, 25);
             this.colorRed.TabIndex = 9;
             this.colorRed.UseVisualStyleBackColor = false;
+            this.colorRed.Click += new System.EventHandler(this.colorRed_Click);
             // 
             // colorBlue
             // 
             this.colorBlue.BackColor = System.Drawing.Color.Blue;
-            this.colorBlue.Location = new System.Drawing.Point(70, 30);
+            this.colorBlue.Location = new System.Drawing.Point(65, 29);
             this.colorBlue.Name = "colorBlue";
-            this.colorBlue.Size = new System.Drawing.Size(20, 18);
+            this.colorBlue.Size = new System.Drawing.Size(25, 25);
             this.colorBlue.TabIndex = 5;
             this.colorBlue.UseVisualStyleBackColor = false;
+            this.colorBlue.Click += new System.EventHandler(this.colorBlue_Click);
             // 
             // colorGreen
             // 
             this.colorGreen.BackColor = System.Drawing.Color.Lime;
-            this.colorGreen.Location = new System.Drawing.Point(44, 54);
+            this.colorGreen.Location = new System.Drawing.Point(39, 54);
             this.colorGreen.Name = "colorGreen";
-            this.colorGreen.Size = new System.Drawing.Size(20, 18);
+            this.colorGreen.Size = new System.Drawing.Size(25, 25);
             this.colorGreen.TabIndex = 8;
             this.colorGreen.UseVisualStyleBackColor = false;
+            this.colorGreen.Click += new System.EventHandler(this.colorGreen_Click);
             // 
             // colorPink
             // 
             this.colorPink.BackColor = System.Drawing.Color.Fuchsia;
-            this.colorPink.Location = new System.Drawing.Point(122, 30);
+            this.colorPink.Location = new System.Drawing.Point(117, 29);
             this.colorPink.Name = "colorPink";
-            this.colorPink.Size = new System.Drawing.Size(20, 18);
+            this.colorPink.Size = new System.Drawing.Size(25, 25);
             this.colorPink.TabIndex = 6;
             this.colorPink.UseVisualStyleBackColor = false;
+            this.colorPink.Click += new System.EventHandler(this.colorPink_Click);
             // 
             // colorWhite
             // 
             this.colorWhite.BackColor = System.Drawing.Color.White;
-            this.colorWhite.Location = new System.Drawing.Point(18, 54);
+            this.colorWhite.Location = new System.Drawing.Point(13, 54);
             this.colorWhite.Name = "colorWhite";
-            this.colorWhite.Size = new System.Drawing.Size(20, 18);
+            this.colorWhite.Size = new System.Drawing.Size(25, 25);
             this.colorWhite.TabIndex = 7;
             this.colorWhite.UseVisualStyleBackColor = false;
+            this.colorWhite.Click += new System.EventHandler(this.colorWhite_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 102);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 102);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(956, 505);
+            this.pictureBox1.Size = new System.Drawing.Size(950, 505);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -316,7 +330,7 @@
         private System.Windows.Forms.Button buttonPen;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonRectangle;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonLine;
         private System.Windows.Forms.Button button3;
     }
 }
