@@ -32,6 +32,7 @@ namespace MalovaniUkol
         Pen myPen = new Pen(Color.Black, 1);
         Brush myBrush = new SolidBrush(Color.Black);
         Pen Eraser = new Pen(Color.White, 30); //guma má bílou barvu a danou velikost 30px
+        Brush eraserBrush = new SolidBrush(Color.White);
         int index; //index na volbu kreslení - pero, guma, kruh, čtverec
         int x, y, fX, fY, sX, sY; //pro kreslení objektů
         //x - aktuální poloha myši na souřadnici x
@@ -51,6 +52,10 @@ namespace MalovaniUkol
             myPen.Width = myWidth; //změníme tloušťky pera na novou tloušťky, kterou přijmeme jako parametr funkce
         }
 
+        private void ChangeBrushColor(Color newColor)
+        {
+            myBrush = new SolidBrush(newColor); //u štetce nejde měnit barva jako u pera, musím vytvořit nový štetec
+        }
 
 
 
@@ -72,7 +77,7 @@ namespace MalovaniUkol
                     g.DrawLine(myPen, px, py); //nakreslí čáru mezi px a py
                     float r = myPen.Width; //r - průměr kružnice (šířka, výška)
                     float Cx = px.X - r / 2; //souřadnice pro generování kruhů
-                    float Cy = py.Y - r / 2; //Cx/Cy - circle x/circle y
+                    float Cy = px.Y - r / 2; //Cx/Cy - circle x/circle y
                     g.FillEllipse(myBrush, Cx, Cy, r, r); //kruh na vyplnění mezer
                     py = px; //nastaví novou hodnotu py na aktální polohu myši aby se dalo kreslit dál
                 }
@@ -80,6 +85,10 @@ namespace MalovaniUkol
                 {
                     px = e.Location; //to samé jako u pera, akorát použiju pero, -->
                     g.DrawLine(Eraser, px, py); // --> co má barvu nastavenou na bílou a tím to přemaluju
+                    float r = 30;
+                    float Cx = px.X - r / 2;
+                    float Cy = px.Y - r / 2;
+                    g.FillEllipse(eraserBrush, Cx, Cy, r, r); 
                     py = px;
                 }
             }
@@ -160,42 +169,52 @@ namespace MalovaniUkol
         private void colorBlack_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Black);
+            ChangeBrushColor(Color.Black);
         }
         private void colorWhite_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.White);
+            ChangeBrushColor(Color.White);
         }
         private void colorCyan_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Cyan);
+            ChangeBrushColor(Color.Cyan);
         }
         private void colorGreen_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Green);
+            ChangeBrushColor (Color.Green);
         }
         private void colorBlue_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Blue);
+            ChangeBrushColor(Color.Blue);
         }
         private void colorYellow_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Yellow);
+            ChangeBrushColor (Color.Yellow);
         }
         private void colorPurple_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Purple);
+            ChangeBrushColor(Color.Purple);
         }
         private void colorOrange_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Orange);
+            ChangeBrushColor(Color.Orange);
         }
         private void colorPink_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Pink);
+            ChangeBrushColor(Color.Pink);
         }
         private void colorRed_Click(object sender, EventArgs e)
         {
             ChangePenColor(Color.Red);
+            ChangeBrushColor(Color.Red);
         }
 
         //Nastavení tlouišťky čáry
