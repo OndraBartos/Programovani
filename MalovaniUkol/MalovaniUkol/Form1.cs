@@ -16,12 +16,22 @@ namespace MalovaniUkol
         {
             InitializeComponent();
 
-            this.Width = 995; //daná šířka a výška formuláře aby se do něj hezky vešlo plátno i panel
-            this.Height = 660;
             bm = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(bm);
             g.Clear(Color.White);
+            //obrázky na tlačítka
             pictureBox1.Image = bm;
+            buttonCircle.BackgroundImage = Properties.Resources.elipsa;
+            buttonCircle.BackgroundImageLayout = ImageLayout.Zoom; //upraví oprázek aby se vešel do buttonu
+            buttonRectangle.BackgroundImage = Properties.Resources.ctverecnovy;
+            buttonRectangle.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonPen.BackgroundImage = Properties.Resources.pero;
+            buttonPen.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEraser.BackgroundImage = Properties.Resources.guma;
+            buttonEraser.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonLine.BackgroundImage = Properties.Resources.usecka;
+            buttonLine.BackgroundImageLayout = ImageLayout.Zoom;
+            
         }
 
         Bitmap bm;
@@ -34,6 +44,7 @@ namespace MalovaniUkol
         Pen Eraser = new Pen(Color.White, 30); //guma má bílou barvu a danou velikost 30px
         Brush eraserBrush = new SolidBrush(Color.White);
         int index; //index na volbu kreslení - pero, guma, kruh, čtverec
+        int fillIndex; //na volbu výplně
         int x, y, fX, fY, sX, sY; //pro kreslení objektů
         //x - aktuální poloha myši na souřadnici x
         //y - aktuální poloha myši na souřadnici y
@@ -85,7 +96,7 @@ namespace MalovaniUkol
                 {
                     px = e.Location; //to samé jako u pera, akorát použiju pero, -->
                     g.DrawLine(Eraser, px, py); // --> co má barvu nastavenou na bílou a tím to přemaluju
-                    float r = 30;
+                    float r = 30; //tloušťka gumy pevně daná na 30px
                     float Cx = px.X - r / 2;
                     float Cy = px.Y - r / 2;
                     g.FillEllipse(eraserBrush, Cx, Cy, r, r); 
@@ -107,13 +118,21 @@ namespace MalovaniUkol
             fX = x - sX; //vypočítání finálních souřadnic -> aktuální souřadnice mínus původní souřadnice
             fY = y - sY;
 
-            if (index == 3)
+            if (index == 3 && fillIndex == 0)
             {
                 g.DrawEllipse(myPen, sX, sY, fX, fY); //kruh
-            }               
-            else if (index == 4)                            //čtverec a kruh stejným způsobem
+            }
+            else if (index == 3 && fillIndex == 1)
+            {
+                g.FillEllipse(myBrush, sX, sY, fX, fY); //kruh s výplní
+            }
+            else if (index == 4 && fillIndex == 0)    //čtverec a kruh stejným způsobem
             {
                 g.DrawRectangle(myPen, sX, sY, fX, fY); //čtverec
+            }
+            else if (index == 4 && fillIndex == 1)
+            {
+                g.FillRectangle(myBrush, sX, sY, fX, fY); //čtverec s výplní
             }
             else if (index == 5)
             {
@@ -146,18 +165,26 @@ namespace MalovaniUkol
         {
             index = 5;
         }
-        private void pictureBox1_Paint(object sender, PaintEventArgs e) //dělá mi nákres pri kerslení objektů
+        private void pictureBox1_Paint(object sender, PaintEventArgs e) //dělá mi nákres při kreslení objektů
         {
             Graphics g = e.Graphics;
             if (paint == true)
             {
-                if (index == 3)
+                if (index == 3 && fillIndex == 0)
                 {
                     g.DrawEllipse(myPen, sX, sY, fX, fY); //kruh
                 }
-                else if (index == 4)                            //čtverec a kruh stejným způsobem
+                else if (index == 3 && fillIndex == 1)
                 {
-                    g.DrawRectangle(myPen, sX, sY, fX, fY); //čtverec
+                    g.FillEllipse(myBrush, sX, sY, fX, fY); //kruh s výplní
+                }
+                else if (index == 4 && fillIndex == 0)    //čtverec a kruh stejným způsobem
+                {
+                    g.DrawRectangle(myPen, sX, sY, fX, fY); //čtverec s výplní
+                }
+                else if (index == 4 && fillIndex == 1)    //čtverec a kruh stejným způsobem
+                {
+                    g.FillRectangle(myBrush, sX, sY, fX, fY); //čtverec
                 }
                 else if (index == 5)
                 {
@@ -223,6 +250,17 @@ namespace MalovaniUkol
             ChangePenSize(hScrollBar1.Value);
         }
 
-
+        //Volba výplně objektů - obrys/vyplněný
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                fillIndex = 1;
+            }
+            else
+            {
+                fillIndex = 0;
+            }
+        }
     }
 }
