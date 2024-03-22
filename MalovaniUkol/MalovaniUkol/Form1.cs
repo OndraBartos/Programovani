@@ -19,8 +19,8 @@ namespace MalovaniUkol
             bm = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(bm);
             g.Clear(Color.White);
-            //obrázky na tlačítka
             pictureBox1.Image = bm;
+            //obrázky na tlačítka, nešli mi vložit jinak doma, teď ve škole mi to funguje ale dělal jsem to reálně úplně stejně 
             buttonCircle.BackgroundImage = Properties.Resources.elipsa;
             buttonCircle.BackgroundImageLayout = ImageLayout.Zoom; //upraví oprázek aby se vešel do buttonu
             buttonRectangle.BackgroundImage = Properties.Resources.ctverecnovy;
