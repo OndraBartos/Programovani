@@ -11,6 +11,15 @@ namespace _1._1_Vetveni_SWITCH__vetveni_IF___ELSE
     {
         static void Main(string[] args)
         {
+            //převádění desítkových čísel na binární - dvojkové soustavy
+            int num = 5012;
+            Console.WriteLine(Convert.ToString(num, 2));
+            //převádění desítkových čísel na hexadecimální - šestrnáctkové soustavy
+            int num2 = 5012;
+            Console.WriteLine(Convert.ToString(num2, 16));
+
+
+
             Console.WriteLine("Vítejte v maturitním rogramu Kalkulačka");
             while (true)
             {

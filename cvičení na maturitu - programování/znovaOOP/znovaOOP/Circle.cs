@@ -24,6 +24,8 @@ namespace znovaOOP
     }
     public class Potomek : Circle
     {
+        public int x; public int y;
+        public int x2; public int y2;
         public void doLeva()
         {
             x = x - 2;

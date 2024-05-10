@@ -44,6 +44,7 @@ namespace _3._1.Práce_se_znakem_a_řetězci
             {
                 textBoxVysledek.Text += s;
             }
+            //text.Replace(" ", "");
         }
         private void buttonSplit_Click(object sender, EventArgs e) //rozdělí na jednotlivý řetězce
         {
